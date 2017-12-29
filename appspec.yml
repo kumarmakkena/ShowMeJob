@@ -24,7 +24,7 @@ os: linux
 #   may cause associated deployments to fail.
 files:
   - source: index.html 
-    destination: /var/www/html/ShowMeJob/ShowMeJob
+    destination: /var/www/html/GIT-REPOS/ShowMeJob
 # For deployments to Amazon Linux, Ubuntu Server, or RHEL instances,
 #   you can specify a "permissions" 
 #   section here that describes special permissions to apply to the files 
