@@ -23,7 +23,7 @@ os: linux
 #   "files" section altogether. A blank or incomplete "files" section
 #   may cause associated deployments to fail.
 files:
-  - source: index.html 
+  - source: README.md 
     destination: /var/www/html/GIT-REPOS/ShowMeJob
 # For deployments to Amazon Linux, Ubuntu Server, or RHEL instances,
 #   you can specify a "permissions" 
