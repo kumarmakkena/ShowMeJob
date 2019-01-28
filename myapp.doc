@@ -1,18 +1,31 @@
 
+Moving Files
 
-That command compares what is in your working directory with what is in your staging area. The result tells you the changes you’ve made that you 
-haven’t yet staged.
+Unlike many other VCS systems, Git doesn’t explicitly track file movement. If you rename a file in Git, no metadata is stored in Git that tells it you 
+renamed the file. However, Git is pretty smart about figuring that out after the fact — we’ll deal with detecting file movement a bit later.
 
-If you want to see what you’ve staged that will go into your next commit, you can use git diff --staged. This command compares your staged changes to 
-your last commit:
+Thus it’s a bit confusing that Git has a mv command. If you want to rename a file in Git, you can run something like:
 
-$ git diff --staged
-diff --git a/README b/README
-new file mode 100644
-index 0000000..03902a1
---- /dev/null
-+++ b/README
-@@ -0,0 +1 @@
-+My Project
+$ git mv file_from file_to
 
+and it works fine. In fact, if you run something like this and look at the status, you’ll see that Git considers it a renamed file:
+
+$ git mv README.md README
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+    renamed:    README.md -> README
+
+However, this is equivalent to running something like this:
+
+$ mv README.md README
+$ git rm README.md
+$ git add README
+
+Git figures out that it’s a rename implicitly, so it doesn’t matter if you rename a file that way or with the mv command. The only real difference is 
+that git mv is one command instead of three — it’s a convenience function. More importantly, you can use any tool you like to rename a file, and 
+address the add/rm later, before you commit.
 shoemejob
