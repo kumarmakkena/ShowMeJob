@@ -1,0 +1,10 @@
+
+
+As an example, if you commit and then realize you forgot to stage the changes in a file you wanted to add to this commit, you can do something like this:
+
+$ git commit -m 'initial commit'
+$ git add forgotten_file
+$ git commit --amend
+
+You end up with a single commit — the second commit replaces the results of the first.
+
